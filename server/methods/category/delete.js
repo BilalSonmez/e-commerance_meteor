@@ -11,7 +11,7 @@ new ValidatedMethod({
 
     let currentCategory = Category.findOne({_id: _id});
     let subCategoryVar = null;
-    
+
     if (currentCategory.subCategory != null) {
       subCategoryVar = currentCategory.subCategory;
     }
@@ -21,6 +21,13 @@ new ValidatedMethod({
         subCategory: subCategoryVar
       }
     });
+
+    Products.update({category: _id}, {
+      $set:{
+        category: subCategoryVar
+      }
+    });
+
 
     Category.remove({ _id: _id });
   }
