@@ -9,6 +9,19 @@ new ValidatedMethod({
     this.unblock();
     const { _id } = data;
 
+    let currentCategory = Category.findOne({_id: _id});
+    let subCategoryVar = null;
+    
+    if (currentCategory.subCategory != null) {
+      subCategoryVar = currentCategory.subCategory;
+    }
+
+    Category.update({subCategory: _id}, {
+      $set:{
+        subCategory: subCategoryVar
+      }
+    });
+
     Category.remove({ _id: _id });
   }
 });
