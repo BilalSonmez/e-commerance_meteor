@@ -1,0 +1,3 @@
+Template.componentNavbar.onCreated(function(){
+    
+});

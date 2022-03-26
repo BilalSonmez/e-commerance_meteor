@@ -1,0 +1,33 @@
+<template name="adminPagesProduct">
+    {{#let _product = (state.get 'product') }}
+    <div class="row my-5">
+        <div class="col-md-10"><h3 class="fs-4 mb-3">Product</h3></div>
+        <div class="col-md-2"><a href="/admin/product/add">Add</a></div>
+        <div class="col">
+            <table class="table bg-white rounded shadow-sm  table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col" width="50">#</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each _product}}
+                    <tr>
+                        <th scope="row">{{_id}}</th>
+                        <td>{{title}}</td>
+                        <td>{{category.title}}</td>
+                        <td>
+                            <button class="brd-category-edit" type="button"><i class="fa-solid fa-pen"></i></button>
+                            <button class="brd-category-remove" type="button"><i class="fa-solid fa-trash"></i></button>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {{/let}}
+</template>

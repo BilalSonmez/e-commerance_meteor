@@ -1,0 +1,51 @@
+<template name="adminPagesProductEdit">
+    {{#let _category = (state.get 'category') _data = (state.get 'data') }}
+    <div class="row my-5">
+        <div class="col-md-10"><h3 class="fs-4 mb-3">Product Add</h3></div>
+        <div class="col-md-2"><a href="/admin/product">List</a></div>
+        <div class="col">
+            <form class="row g-3" id="productEdit">
+                <div class="col-6">
+                    <div class="form-group">
+                    <label for="productTitle" class="form-label">Title</label>
+                    <input type="text" class="form-control" name="title" id="productTitle" value="{{_data.title}}">
+                    </div>
+                    {{#each _category}}
+                    <div class="form-group">
+                        {{#if eq _data.category _id}}
+                        <input class="form-check-input" type="radio" name="category" id="{{_id}}" value="{{_id}}" checked>
+                        {{else}}
+                        <input class="form-check-input" type="radio" name="category" id="{{_id}}" value="{{_id}}">
+                        {{/if}}
+                        <label class="form-check-label" for="{{_id}}">
+                            {{title}}
+                        </label>
+                    </div>
+                    {{/each}}
+                </div>
+                <div class="col-6">
+                    <div class="images-area">
+                        <label class="form-label">Images URLS</label>
+                        {{#each _data.images }}
+                        <div class="row image-area my-2">
+                            <div class="col-8">
+                                <input class="form-control image-area-input" type="text" name="images[]" value="{{this}}">
+                            </div>
+                            <div class="col-4">
+                                <button class="btn btn-warning brd-Remove-Image">Remove</button>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                    <div class="images-button my-2">
+                        <button type="button" class="btn btn-primary" id="addImage">Add Image</button>
+                    </div>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn btn-primary">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    {{/let}}
+</template>

@@ -1,0 +1,24 @@
+<template name="adminComponentSideBar">
+  <div class="bg-white" id="sidebar-wrapper">
+    <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase">
+      <i class="fa-solid fa-box me-2"></i> m3Butik 
+    </div>
+    <div class="list-group list-group-flush my-3">
+      <a href="/admin/dashboard" class="list-group-item list-group-item-action bg-transparent second-text{{#if eq link 'admin.dashboard'}} active{{else}} fw-bold{{/if}}">
+        <i class="fa-solid fa-gauge-high me-2"></i> Dashboard 
+      </a>
+      <a href="/admin/product" class="list-group-item list-group-item-action bg-transparent second-text{{#if eq link 'admin.product'}} active{{else}} fw-bold{{/if}}">
+        <i class="fa-solid fa-shirt me-2"></i> Product 
+      </a>
+      <a href="/admin/category" class="list-group-item list-group-item-action bg-transparent second-text{{#if eq link 'admin.category'}} active{{else}} fw-bold{{/if}}">
+        <i class="fa-solid fa-list me-2"></i> Category 
+      </a>
+      <a href="/admin/user" class="list-group-item list-group-item-action bg-transparent second-text{{#if eq link 'admin.user'}} active{{else}} fw-bold{{/if}}">
+        <i class="fa-solid fa-user me-2"></i> User 
+      </a>
+      <a href="#" class="list-group-item brd-logOut list-group-item-action bg-transparent text-danger fw-bold">
+        <i class="fa-solid fa-power-off me-2"></i> Logout 
+      </a>
+    </div>
+  </div>
+</template>

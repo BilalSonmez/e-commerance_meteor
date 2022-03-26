@@ -1,0 +1,37 @@
+<template name="adminPagesCategoryAdd">
+    {{#let _category = (state.get 'category') }}
+    <div class="row my-5">
+        <div class="col-md-10"><h3 class="fs-4 mb-3">Category Add</h3></div>
+        <div class="col-md-2"><a href="/admin/category">List</a></div>
+        <div class="col">
+            <form class="row g-3" id="categoryAdd">
+                <div class="col-3">
+                    <div class="form-group">
+                    <label for="categoryTitle" class="form-label">Title</label>
+                    <input type="text" class="form-control" name="title" id="categoryTitle">
+                    </div>
+                </div>
+                <div class="col-12 overflow-auto">
+                    <div class="form-group">
+                        <input class="form-check-input" type="radio" name="subCategory" id="mainCategory" value="null" checked>
+                        <label class="form-check-label" for="mainCategory">
+                            Main Category
+                        </label>
+                    </div>
+                    {{#each _category}}
+                    <div class="form-group">
+                        <input class="form-check-input" type="radio" name="subCategory" id="{{_id}}" value="{{_id}}">
+                        <label class="form-check-label" for="{{_id}}">
+                            {{title}}
+                        </label>
+                    </div>
+                    {{/each}}
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn btn-primary">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    {{/let}}
+</template>
